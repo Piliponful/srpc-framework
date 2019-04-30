@@ -1,16 +1,4 @@
-// { handlers: { [functionName]: [functionBody] } }
-// { jsonString: string }
-const createFunctionCaller = ({ handlersObject }) => ({ jsonString }) => {
-  try {
-    // { name: string, args: { [argName]: [arg] }
-    const funcCallDescription = JSON.parse(jsonString)
-    const funcToCall = handlers[funcCallDescription.name]
-    const funcResult = funcToCall(funcCallDescription.args)
+const pureModules = require('./pure-modules')
+const filthyModules = require('./filthy-modules')
 
-    return funcResult
-  } catch (e) {
-    console.error(e)
-  }
-}
-
-module.exports = { createFunctionCaller }
+module.exports = { pureModules, filthyModules }
