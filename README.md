@@ -1,4 +1,4 @@
-<div style="text-align: center"><img src="srpc-logo.png" /></div>
+<p align="center"><img src="srpc-logo.png" /></p>
 <p align="center">
   <a href="https://github.com/standard/standard">
     <img alt="JavaScript Style Guide" src="https://cdn.rawgit.com/standard/standard/master/badge.svg" />
