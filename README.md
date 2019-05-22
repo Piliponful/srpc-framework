@@ -33,8 +33,10 @@ createSRPCServer({ createFunctionCaller })({ functions, port, onStartText })
 ```
 
 ## Motivation
-Web framework that will just let you write the code as you envision it. Won't limit you. Won't stand in your way.
+Web framework that will let you write the code as you envision it. Won't limit you. Won't stand in your way.
 
 Without a need to adjust your though process to it. Without a room for REST. Simplified to it's bare bones.
+
+Ready to acknowledge and embrace today's action-based web apps.
 
 Seamless client -> server integration.
