@@ -1,14 +1,14 @@
 <div style="text-align: center"><img src="srpc-logo.png" /></div>
-<div style="text-align: center">
+<p align="center">
   <a href="https://github.com/standard/standard">
     <img alt="JavaScript Style Guide" src="https://cdn.rawgit.com/standard/standard/master/badge.svg" />
   </a>
-</div>
-<div style="text-align: center">
+</p>
+<p align="center">
   <a href="https://nodei.co/npm/srpc-framework.png?downloads=true&downloadRank=true&stars=true">
     <img alt="Link to npm package" src="https://nodei.co/npm/srpc-framework.png?downloads=true&downloadRank=true&stars=true" />
   </a>
-</div>
+</p>
 
 ## Usage
 ```js
