@@ -1,7 +1,4 @@
-// { functions: { [functionName]: [functionBody] } }
-// { jsonString: string }
-const createFunctionCaller = ({ functions }) => ({ jsonString }) => {
-  // { name: string, args: { [argName]: [arg] }
+const createFunctionCaller = ({ functions, jsonString }) => {
   const funcCallDescription = JSON.parse(jsonString)
   const funcToCall = functions[funcCallDescription.name]
   const funcResult = funcToCall(funcCallDescription.args)

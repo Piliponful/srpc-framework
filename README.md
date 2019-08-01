@@ -12,24 +12,13 @@
 
 ## Usage
 ```js
-const {
-  pureModules: {
-    functionCaller: {
-      createFunctionCaller
-    }
-  }, filthyModules: {
-    SRPCServer: {
-      createSRPCServer
-    }
-  }
-} = require('../../')
+const { createSrpcServer } = require('srpc-framework/src/createSrpcServer')
 
 const functions = { add: ({ a, b }) => a + b }
 
 const port = 8080
 const onStartText = `Server successfully launched on port ${port}`
-createSRPCServer({ createFunctionCaller })({ functions, port, onStartText })
-
+createSrpcServer({ functions, port, onStartText })
 ```
 
 ## Motivation
@@ -39,4 +28,4 @@ Without a need to adjust your though process to it. Without a room for REST. Sim
 
 Ready to acknowledge and embrace today's action-based web apps.
 
-Seamless client -> server integration.
+Seamless client->server integration.
