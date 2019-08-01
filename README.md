@@ -12,12 +12,13 @@
 
 ## Usage
 ```js
-const { createSrpcServer } = require('srpc-framework/src/createSrpcServer')
+const { createSrpcServer } = require('srpc-framework/impureModules/createSrpcServer')
 
 const functions = { add: ({ a, b }) => a + b }
 
 const port = 8080
 const onStartText = `Server successfully launched on port ${port}`
+
 createSrpcServer({ functions, port, onStartText })
 ```
 
