@@ -1,13 +1,12 @@
 const getRawBody = require('raw-body')
 const http = require('http')
 
-const { createFunctionCaller } = require('./createFunctionCaller')
-
 const createSrpcServer = ({
   port,
   onStartText,
   onStartFunc,
-  functions
+  functions,
+  createFunctionCaller
 }) => {
   http.createServer(async (req, res) => {
     const jsonString = await getRawBody(req, {
