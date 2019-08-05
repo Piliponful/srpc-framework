@@ -6,7 +6,7 @@ const createSrpcServer = ({
   onStartText,
   onStartFunc,
   functions,
-  createFunctionCaller
+  callFunction
 }) => {
   http.createServer(async (req, res) => {
     const jsonString = await getRawBody(req, {
@@ -14,8 +14,7 @@ const createSrpcServer = ({
       limit: '1mb',
       encoding: true
     })
-    const functionCaller = createFunctionCaller({ functions })
-    const result = functionCaller({ jsonString })
+    const result = await callFunction({ input: { functions, jsonString } })
     res.writeHead(200, { 'Content-Type': 'application/json' })
     res.write(JSON.stringify(result))
     res.end()
