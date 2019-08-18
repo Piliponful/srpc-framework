@@ -3,8 +3,8 @@ const http = require('http')
 
 const createSrpcServer = ({
   port,
-  onStartText,
   onStartFunc,
+  onStartText,
   functions,
   callFunction
 }) => {
