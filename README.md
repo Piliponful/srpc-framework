@@ -12,8 +12,8 @@
 
 ## Usage
 ```js
-const { createFunctionCaller } = require('srpc-framework/pureModules/createFunctionCaller')
-const { createHttpSrpcServer } = require('srpc-framework/impureModules/createSrpcServer')
+const { createFunctionCaller } = require('srpc-framework/functions/pure/createFunctionCaller')
+const { createHttpSrpcServer } = require('srpc-framework/functions/impure/createSrpcServer')
 
 const functions = { add: ({ a, b }) => a + b }
 
