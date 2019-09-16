@@ -13,14 +13,14 @@
 ## Usage
 ```js
 const { createFunctionCaller } = require('srpc-framework/pureModules/createFunctionCaller')
-const { createSrpcServer } = require('srpc-framework/impureModules/createSrpcServer')
+const { createHttpSrpcServer } = require('srpc-framework/impureModules/createSrpcServer')
 
 const functions = { add: ({ a, b }) => a + b }
 
 const port = 8080
 const onStartText = `Server successfully launched on port ${port}`
 
-createSrpcServer({ functions, port, onStartText })
+createHttpSrpcServer({ functions, port, onStartText })
 ```
 
 ## Motivation
@@ -31,3 +31,14 @@ Without a need to adjust your though process to it. Without a room for REST. Sim
 Ready to acknowledge and embrace today's action-based web apps.
 
 Seamless client->server integration.
+
+## Srpc protocol specification
+Data format: JSON;
+Request format: `{ functionName: string, functionArguments: { [key: string]: any } }`
+Response format: `{ errors: [string], value: any }`
+
+## Http srpc protocol specification
+Data format: JSON;
+Http method: POST;
+Example using curl: `curl -X POST -H "Content-Type: application/json" -d '{ "name": "add", "args": { a: 2, b: 2 } }' http://localhost:3000`
+

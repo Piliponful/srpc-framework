@@ -1,7 +1,7 @@
 const getRawBody = require('raw-body')
 const http = require('http')
 
-const createSrpcServer = ({
+const createHttpSrpcServer = ({
   port,
   onStartFunc,
   onStartText,
@@ -22,4 +22,4 @@ const createSrpcServer = ({
     .listen(port, onStartFunc || (() => console.log(onStartText)))
 }
 
-module.exports = { createSrpcServer }
+module.exports = { createHttpSrpcServer }
