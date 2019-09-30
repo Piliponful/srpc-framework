@@ -33,6 +33,6 @@ Ready to acknowledge and embrace today's action-based web apps.
 Seamless client->server integration.
 
 ## srpc Protocol Specification
-Data format: JSON
-Request format: `{ functionName: string, functionArguments: { [key: string]: any } }`
-Response format: `{ errors: [string], value: any }`
+Data format: JSON  
+Request format: ```js { functionName: string, functionArguments: { [key: string]: any } }```  
+Response format: ```js { errors: [string], value: any }```  
