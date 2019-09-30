@@ -33,12 +33,6 @@ Ready to acknowledge and embrace today's action-based web apps.
 Seamless client->server integration.
 
 ## srpc Protocol Specification
-<p>Data format: JSON;</p>
-<p>Request format: `{ functionName: string, functionArguments: { [key: string]: any } }`;</p>
-<p>Response format: `{ errors: [string], value: any }`;</p>
-
-## http-srpc Protocol Specification
-<p>Http method: POST;</p>
-<p>Http body: JSON object following srpc request format;</p>
-<p>Http response: JSON object following srpc response format;</p>
-<p>Example using curl: `curl -X POST -H "Content-Type: application/json" -d '{ "name": "add", "args": { a: 2, b: 2 } }' http://localhost:3000`;</p>
+Data format: JSON
+Request format: `{ functionName: string, functionArguments: { [key: string]: any } }`
+Response format: `{ errors: [string], value: any }`
