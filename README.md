@@ -13,7 +13,7 @@
 ## Usage
 ```js
 const { createFunctionCaller } = require('srpc-framework/functions/pure/createFunctionCaller')
-const { createHttpSrpcServer } = require('srpc-framework/functions/impure/createSrpcServer')
+const { createHttpSrpcServer } = require('srpc-framework/functions/impure/createHttpSrpcServer')
 
 const functions = { add: ({ a, b }) => a + b }
 
@@ -32,13 +32,13 @@ Ready to acknowledge and embrace today's action-based web apps.
 
 Seamless client->server integration.
 
-## Srpc protocol specification
-Data format: JSON;
-Request format: `{ functionName: string, functionArguments: { [key: string]: any } }`
-Response format: `{ errors: [string], value: any }`
+## srpc Protocol Specification
+<p align="center">Data format: JSON;</p>
+<p align="center">Request format: `{ functionName: string, functionArguments: { [key: string]: any } }`;</p>
+<p align="center">Response format: `{ errors: [string], value: any }`;</p>
 
-## Http srpc protocol specification
-Data format: JSON;
-Http method: POST;
-Example using curl: `curl -X POST -H "Content-Type: application/json" -d '{ "name": "add", "args": { a: 2, b: 2 } }' http://localhost:3000`
-
+## http-srpc Protocol Specification
+<p align="center">Http method: POST;</p>
+<p align="center">Http body: JSON object following srpc request format;</p>
+<p align="center">Http response: JSON object following srpc response format;</p>
+<p align="center">Example using curl: `curl -X POST -H "Content-Type: application/json" -d '{ "name": "add", "args": { a: 2, b: 2 } }' http://localhost:3000`;</p>
