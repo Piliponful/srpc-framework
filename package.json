@@ -1,6 +1,6 @@
 {
   "main": "index.js",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "scripts": {
     "example": "node examples/index.js",
     "example-dev": "nodemon examples/index.js",
