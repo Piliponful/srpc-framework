@@ -1,6 +1,14 @@
 const getRawBody = require('raw-body')
 const http = require('http')
 
+const defaultCallFunction = (functions, jsonString) => {
+  const funcCallDescription = JSON.parse(jsonString)
+
+  const funcToCall = functions[funcCallDescription.functionName]
+
+  return funcToCall(funcCallDescription.functionArguments)
+}
+
 const createHttpSrpcServer = ({
   port,
   onStartFunc,
@@ -14,7 +22,7 @@ const createHttpSrpcServer = ({
       limit: '1mb',
       encoding: true
     })
-    const result = await callFunction({ input: { functions, jsonString } })
+    const result = await callFunction(functions, jsonString)
     res.writeHead(200, { 'Content-Type': 'application/json' })
     res.write(JSON.stringify(result))
     res.end()
@@ -22,4 +30,4 @@ const createHttpSrpcServer = ({
     .listen(port, onStartFunc || (() => console.log(onStartText)))
 }
 
-module.exports = { createHttpSrpcServer }
+module.exports = { createHttpSrpcServer, defaultCallFunction }
