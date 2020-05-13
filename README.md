@@ -12,31 +12,36 @@
 
 ## Usage
 ```js
-const { createHttpSrpcServer, defaultCallFunction } = require('srpc-framework')
+const { createServer, createInvalidParamsError } = require('srpc-framework')
+
+const { createServer } = require('http') // or https
 
 const functions = { add: ({ a, b }) => a + b }
+const paramsValidationFunctions = {
+  add: (params) => {
+    if (params instanceof Object !== true) {
+      return false
+    }
 
+    return typeof params.a === number && typeof params.b === number
+  }
+}
+
+const limit = '1mb'
 const port = 8080
 const onStartText = `Server successfully launched on port ${port}`
 
-createHttpSrpcServer({ port, onStartText, functions, callFunction: defaultCallFunction })
+const { listen: startServer } = createServer({ functions, paramsValidationFunctions, limit, createServer })
+
+startServer(port, onStartText)
 ```
 
-## Motivation
-Web framework that will let you write the code as you envision it. Won't limit you. Won't stand in your way.
+## Overview
+JSON-RPC over HTTP web 'framework'
 
-Without a need to adjust your though process to it. Without a room for REST. Simplified to it's bare bones.
+## Specification
+It adhere to [JSON-RPC 2.0](https://www.jsonrpc.org/specification)
 
-Ready to acknowledge and embrace today's action-based web apps.
-
-Seamless client->server integration.
-
-## Srpc Protocol Specification
-To adhere to srpc specification and to ensure the interoperability between
-different implementations of this framework you need to follow only 2 simple steps:
-
-1. To make remote procedural call to server use JSON as data format
-2. This JSON should have following structure: `{ functionName: string, functionArguments: { [key: string]: any } }`
-3. You should put this JSON in HTTP request body
-
-That's all
+Exceptions:
+1. No id field - no point in it when over HTTP
+2. No batch requests - if you need batch requests you wrote your back end poorly and need to refactor it

@@ -2,11 +2,10 @@
   "main": "index.js",
   "version": "1.0.19",
   "scripts": {
-    "example": "node examples/index.js",
-    "example-dev": "nodemon examples/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "await-to-js": "github:piliponful/await-to-js",
     "parse-json": "^4.0.0",
     "raw-body": "^2.4.0"
   },
@@ -15,7 +14,7 @@
     "standard": "^12.0.1"
   },
   "name": "srpc-framework",
-  "description": "Next generation web framework which will provide a flexability modern web app need",
+  "description": "JSON-RPC over HTTP web 'framework'",
   "author": "piliponful@gmail.com",
   "repository": "piliponful/srpc-framework",
   "keywords": [
