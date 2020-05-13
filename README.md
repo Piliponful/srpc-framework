@@ -31,7 +31,12 @@ Ready to acknowledge and embrace today's action-based web apps.
 
 Seamless client->server integration.
 
-## srpc Protocol Specification
-Data format: JSON  
-Request format: `{ functionName: string, functionArguments: { [key: string]: any } }`  
-Response format: `{ errors: [string], value: any }`  
+## Srpc Protocol Specification
+To adhere to srpc specification and to ensure the interoperability between
+different implementations of this framework you need to follow only 2 simple steps:
+
+1. To make remote procedural call to server use JSON as data format
+2. This JSON should have following structure: `{ functionName: string, functionArguments: { [key: string]: any } }`
+3. You should put this JSON in HTTP request body
+
+That's all
