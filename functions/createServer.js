@@ -2,7 +2,7 @@ const getRawBody = require('raw-body')
 
 const { jsonRpcVersion } = require('../constants')
 
-const callFunction = require('./defaultCallFunction')
+const callFunction = require('./callFunction')
 
 const createServer = ({
   functions,
