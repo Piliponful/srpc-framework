@@ -1,4 +1,4 @@
-const to = require('await-to-js1')
+const to = require('await-to-js1').default
 
 const callFunction = async (functions, paramsValidationFunctions, jsonString) => {
   const [err, funcCallDescription] = await to(() => JSON.parse(jsonString))
