@@ -10,7 +10,7 @@ const createServer = ({
   limit,
   createServer
 }) => {
-  createServer(async (req, res) => {
+  return createServer(async (req, res) => {
     const jsonString = await getRawBody(req, {
       length: req.headers['content-length'],
       limit,
