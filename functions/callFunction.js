@@ -66,17 +66,14 @@ const callFunction = async (functions, paramsValidationFunctions, jsonString) =>
   }
 
   try {
-    const result = await funcToCall(funcCallDescription.functionArguments)
+    const result = await funcToCall(funcCallDescription.params)
 
-    return { result }
+    return result
   } catch (err) {
     return {
       error: {
         code: -32001,
-        message: 'Server Error',
-        data: {
-          additionalMessage: err.message
-        }
+        message: 'Server Error'
       }
     }
   }
