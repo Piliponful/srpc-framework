@@ -70,6 +70,7 @@ const callFunction = async (functions, paramsValidationFunctions, jsonString) =>
 
     return result
   } catch (err) {
+    console.error(err)
     return {
       error: {
         code: -32001,
