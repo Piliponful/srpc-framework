@@ -5,6 +5,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "colors": "^1.4.0",
+    "json-stringify-pretty-compact": "^3.0.0",
     "parse-json": "^4.0.0",
     "raw-body": "^2.4.0"
   },

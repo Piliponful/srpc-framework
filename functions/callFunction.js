@@ -6,7 +6,7 @@ const to = func => {
   }
 }
 
-const callFunction = async (functions, paramsValidationFunctions, jsonString) => {
+const callFunction = async (functions, jsonString) => {
   const [err, funcCallDescription] = to(() => JSON.parse(jsonString))
 
   if (err) {
@@ -40,44 +40,9 @@ const callFunction = async (functions, paramsValidationFunctions, jsonString) =>
     }
   }
 
-  const isParamsValid = paramsValidationFunctions[funcCallDescription.method]
+  const result = await funcToCall(funcCallDescription.params)
 
-  if (!isParamsValid) {
-    return {
-      error: {
-        code: -32000,
-        message: 'Server error',
-        data: {
-          additionalMessage: 'No params validation function'
-        }
-      }
-    }
-  }
-
-  const paramsIsValid = isParamsValid(funcCallDescription.params)
-
-  if (!paramsIsValid) {
-    return {
-      error: {
-        code: -32602,
-        message: 'Invalid params'
-      }
-    }
-  }
-
-  try {
-    const result = await funcToCall(funcCallDescription.params)
-
-    return result
-  } catch (err) {
-    console.log(`Error ${err} occurred in function ${funcCallDescription.method}`)
-    return {
-      error: {
-        code: -32001,
-        message: 'Server Error'
-      }
-    }
-  }
+  return result
 }
 
 module.exports = callFunction
