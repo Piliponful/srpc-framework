@@ -31,7 +31,7 @@ const handleErrors = result => {
   return result
 }
 
-const { listen: startServer } = createServer({ functions, createServer, callFunction: compose(callFunction, ) })
+const { listen: startServer } = createServer({ functions, createServer, callFunction: compose(callFunction, handleErrors) })
 
 startServer(port, onStartText)
 ```
