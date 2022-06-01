@@ -1,6 +1,3 @@
-const createHttpServer = require('./functions/createHttpServer')
-const createHttpsServer = require('./functions/createHttpsServer')
-const handleSrpcError = require('./functions/handleSrpcError')
-const getParamsError = require('./functions/getParamsError')
+const createServer = require('./functions/createServer')
 
-module.exports = { createHttpServer, createHttpsServer, handleSrpcError, getParamsError }
+module.exports = { createServer }

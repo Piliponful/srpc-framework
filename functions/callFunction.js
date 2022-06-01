@@ -12,8 +12,7 @@ const callFunction = async (functions, jsonString) => {
   if (err) {
     return {
       error: {
-        code: -32700,
-        message: 'Parse error'
+        message: 'Error parsing JSON'
       }
     }
   }
@@ -23,8 +22,7 @@ const callFunction = async (functions, jsonString) => {
   if (!methodIsValid) {
     return {
       error: {
-        code: -32600,
-        message: 'invalid request'
+        message: 'Method name is invalid'
       }
     }
   }
@@ -34,15 +32,12 @@ const callFunction = async (functions, jsonString) => {
   if (!funcToCall) {
     return {
       error: {
-        code: -32601,
         message: 'Method not found'
       }
     }
   }
 
-  const result = await funcToCall(funcCallDescription.params)
-
-  return result
+  return funcToCall(funcCallDescription.params)
 }
 
 module.exports = callFunction

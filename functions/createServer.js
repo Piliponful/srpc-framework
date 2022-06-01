@@ -1,4 +1,5 @@
 const getRawBody = require('raw-body')
+const contentType = require('content-type')
 
 const { jsonRpcVersion } = require('../constants')
 
@@ -6,19 +7,19 @@ const callFunction = require('./callFunction')
 
 const createServer = ({
   functions,
-  paramsValidationFunctions,
-  limit,
   createServer
 }) => {
   return createServer(async (req, res) => {
     const jsonString = await getRawBody(req, {
       length: req.headers['content-length'],
-      limit,
-      encoding: true
+      limit: '1mb',
+      encoding: contentType.parse(req).parameters.charset
     })
-    const result = await callFunction(functions, paramsValidationFunctions, jsonString)
+
+    const result = await callFunction(functions, jsonString)
+
     res.writeHead(200, { 'Content-Type': 'application/json' })
-    res.write(JSON.stringify({ jsonrpc: jsonRpcVersion, ...result }))
+    res.write(JSON.stringify({ ...result }))
     res.end()
   })
 }
