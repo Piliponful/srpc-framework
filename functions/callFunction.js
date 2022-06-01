@@ -40,4 +40,4 @@ const callFunction = async (functions, jsonString) => {
   return funcToCall(funcCallDescription.params)
 }
 
-module.exports = callFunction
+module.exports = { callFunction }

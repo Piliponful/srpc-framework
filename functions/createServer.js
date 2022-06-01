@@ -1,13 +1,12 @@
 const getRawBody = require('raw-body')
 const contentType = require('content-type')
 
-const { jsonRpcVersion } = require('../constants')
-
-const callFunction = require('./callFunction')
+const { defaultCallFunction } = require('./callFunction')
 
 const createServer = ({
   functions,
-  createServer
+  createServer,
+  callFunction = defaultCallFunction
 }) => {
   return createServer(async (req, res) => {
     const jsonString = await getRawBody(req, {

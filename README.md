@@ -12,7 +12,7 @@
 
 ## Usage
 ```js
-const { createServer as createSrpcServer } = require('srpc-framework')
+const { createServer as createSrpcServer, callFunction } = require('srpc-framework')
 
 const { createServer } = require('http') // or https
 
@@ -21,7 +21,17 @@ const functions = { add: ({ a, b }) => a + b }
 const port = 8080
 const onStartText = `Server successfully launched on port ${port}`
 
-const { listen: startServer } = createServer({ functions, createServer })
+const handleErrors = result => {
+  if (result.error) {
+    console.log(error)
+
+    return 'Internal Server Error'
+  }
+
+  return result
+}
+
+const { listen: startServer } = createServer({ functions, createServer, callFunction: compose(callFunction, ) })
 
 startServer(port, onStartText)
 ```
